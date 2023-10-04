@@ -1,19 +1,10 @@
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.nio.charset.Charset;
 
 public class Main {
-    public static void main(String[] args) throws IOException, URISyntaxException {
-        LuckyTicketFinder finder = new RecursiveSearch();
-
-        /*for (int N = 1; N <= 10; N++) {
-            System.out.println("Result for " + N + ": " + finder.findCount(N));
-        }*/
-
+    public static void main(String[] args) throws IOException {
         Tester tester = new Tester(
-                null,
+                new RecursiveSearch(),
                 URLDecoder.decode(Main.class.getClassLoader().getResource("tickets").getPath(), "UTF-8")
         );
         tester.run();

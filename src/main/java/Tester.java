@@ -39,8 +39,15 @@ public class Tester {
                 System.out.println("Test input data: ");
                 inputData.forEach(System.out::println);
 
+                long startTime = System.currentTimeMillis();
+                String testResult = task.make(inputData);
+                long testDuration = System.currentTimeMillis() - startTime;
+                System.out.println("Test result: " + testResult + "; durationMillis = " + testDuration);
+
                 String expectedResult = readFileAsString(String.format(TEST_RESULT_FILE_NAME, testNumber)).trim();
                 System.out.println("Test expectedResult: " + expectedResult);
+
+                System.out.println("Test is passed: " + expectedResult.equalsIgnoreCase(testResult));
             } else {
                 System.out.println("Error, incorrect input file name: " + fileName);
             }

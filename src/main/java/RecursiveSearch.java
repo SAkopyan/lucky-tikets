@@ -1,10 +1,13 @@
-public class RecursiveSearch implements LuckyTicketFinder {
+import java.util.List;
+
+public class RecursiveSearch implements Task {
     int count = 0;
+
     @Override
-    public int findCount(int halfTicketSize) {
+    public String make(List<String> inputData) {
         count = 0;
-        recursiveFind(halfTicketSize, 0, 0);
-        return count;
+        recursiveFind(Integer.parseInt(inputData.get(0)), 0, 0);
+        return String.valueOf(count);
     }
 
     private void recursiveFind(int deap, int sumA, int sumB) {
