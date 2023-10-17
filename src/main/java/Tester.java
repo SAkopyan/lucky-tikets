@@ -66,7 +66,7 @@ public class Tester {
     private String readFileAsString(String fileName) {
         try {
             Path path = Paths.get(file.getPath() + "/" + fileName);
-             Files.readAllBytes(path);
+            Files.readAllBytes(path);
             return new String(Files.readAllBytes(path));
         } catch (IOException e) {
             throw new RuntimeException("Error while read file " + fileName, e);
